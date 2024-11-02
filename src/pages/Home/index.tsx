@@ -11,6 +11,7 @@ interface FormFields {
     platNomor: string;
     waktuMasuk: string;
     waktuKeluar: string;
+    jenisKendaraan: string;
 }
 
 export default function Home() {

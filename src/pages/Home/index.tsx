@@ -72,7 +72,7 @@ export default function Home() {
                         <div className="mt-4">
 
                             <div className="flex">
-                                <div className="flex-initial px-2">
+                                <div className="flex-initial">
                                     <Button
                                         type="submit"
                                         onClick={() => {
@@ -82,7 +82,7 @@ export default function Home() {
                                         Submit
                                     </Button>
                                 </div>
-                                <div className="flex-initial px-2">
+                                <div className="flex-initial px-4">
                                     <Button
                                         type="reset"
                                         onClick={() => {

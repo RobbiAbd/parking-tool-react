@@ -36,6 +36,7 @@ export default function MainLayout({children, className} : Props) {
                     {children}
                 </Card>
             </div>
+            <Marquee items={items} />
         </>
     )
 }

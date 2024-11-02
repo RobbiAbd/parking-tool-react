@@ -1,12 +1,24 @@
 import { ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function Select({ items }: { items: string[] }) {
-    const [selectedItem, setSelectedItem] = useState<null | string>(null);
+interface SelectProps {
+    items: string[];
+    value: string; // New prop for the current value
+    setValue: (value: string) => void; // Prop for setting the value in the parent
+}
+
+export default function Select({ items, value, setValue }: SelectProps) {
+    const [selectedItem, setSelectedItem] = useState<string | null>(value); // Initialize with current value
     const [isActiveSelect, setIsActiveSelect] = useState(false);
+
+    // Update selectedItem whenever the value prop changes
+    useEffect(() => {
+        setSelectedItem(value);
+    }, [value]);
 
     const handleItemClick = (itemName: string) => {
         setSelectedItem(itemName); // Update the selected item
+        setValue(itemName);        // Pass the selected item back to the parent
         setIsActiveSelect(false);   // Close the dropdown
     };
 
@@ -45,18 +57,16 @@ export default function Select({ items }: { items: string[] }) {
                     isActiveSelect ? 'top-20 opacity-100 visible' : 'invisible top-[50px] opacity-0'
                 }`}
             >
-                {items.map((item, index) => {
-                    return (
-                        <button
-                            type="button"
-                            key={index}
-                            onClick={() => handleItemClick(item)} // Update selected item and close dropdown
-                            className="block w-full border-b-2 border-border dark:border-darkBorder bg-main px-5 py-3 hover:bg-mainAccent"
-                        >
-                            {item}
-                        </button>
-                    );
-                })}
+                {items.map((item, index) => (
+                    <button
+                        type="button"
+                        key={index}
+                        onClick={() => handleItemClick(item)} // Update selected item and close dropdown
+                        className="block w-full border-b-2 border-border dark:border-darkBorder bg-main px-5 py-3 hover:bg-mainAccent"
+                    >
+                        {item}
+                    </button>
+                ))}
             </div>
         </div>
     );

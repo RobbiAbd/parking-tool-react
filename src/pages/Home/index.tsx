@@ -87,6 +87,7 @@ export default function Home() {
         });
 
         setButtonText("Submit")
+        setBiaya(0)
     }
 
     const validateForm = () => {

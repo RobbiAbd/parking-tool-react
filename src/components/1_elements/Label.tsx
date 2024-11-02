@@ -11,7 +11,7 @@ export default function Label({ htmlFor, children, className }: LabelProps) {
   return (
     <label
       htmlFor={htmlFor}
-      className={cn('block font-medium text-gray-700 mb-1', className)}
+      className={cn('block font-medium text-gray-800 mb-1 font-bold', className)}
     >
       {children}
     </label>

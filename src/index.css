@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Set light mode background color */
+body {
+    @apply bg-bg text-text; /* Sets body background and text color */
+}
+
+/* Set dark mode background color */
+.dark body {
+    @apply bg-darkBg text-darkText;
+}

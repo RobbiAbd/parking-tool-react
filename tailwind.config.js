@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Quicksand', 'sans-serif'],
+      },
       colors: {
         main: "#88aaee",
         mainAccent: "#4d80e6", // not needed for shadcn components
